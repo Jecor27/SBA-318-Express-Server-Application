@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>Home Page</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: cyan;
+            text-decoration-color: white;
+            font-size: 5em;
+        }
+    </style>
+</head>
+
+<body>
+        <form action="/api/jokes" method="POST">
+            <label for="joke">New Joke:</label>
+            <input type="text" id="joke" name="joke" required>
+            <button type="submit">Submit</button>
+        </form>
+        
+</body>
+
+</html>
