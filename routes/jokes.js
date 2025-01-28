@@ -19,6 +19,11 @@ router.get('/', (req, res) => {
     res.json(data.jokes);
 
 });
+//grabbing any available users
+router.get('/users', (req, res) => {
+    
+    res.json(data.users)
+});
 
 
 router.get('/jokes/:id', (req, res) => {
