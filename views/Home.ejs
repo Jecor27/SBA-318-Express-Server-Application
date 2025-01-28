@@ -12,6 +12,13 @@
 </head>
 
 <body>
+    
+    <h1>Jokes</h1>
+<ul>
+    <% data.jokes.forEach(joke => { %>
+        <li><%= joke %></li>
+    <% }) %>
+</ul>
         <form action="/api/jokes" method="POST">
             <label for="joke">New Joke:</label>
             <input type="text" id="joke" name="joke" required>
