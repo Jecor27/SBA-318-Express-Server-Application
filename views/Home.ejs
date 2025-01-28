@@ -2,19 +2,24 @@
 
 <head>
     <title>Home Page</title>
-    <style type="text/css" media="screen">
+    <!-- <style type="text/css" media="screen">
         body {
             background-color: cyan;
             text-decoration-color: white;
             font-size: 5em;
+            align-items: center;
         }
-    </style>
+        #listItems {
+            font-size: 40px;
+        }
+    </style> -->
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
     
-    <h1>Jokes</h1>
-<ul>
+    <h1>JoKeSiEs</h1>
+<ul id="listItems">
     <% data.jokes.forEach(joke => { %>
         <li><%= joke.content %></li>
     <% }) %>
