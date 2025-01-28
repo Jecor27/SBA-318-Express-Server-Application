@@ -1,5 +1,5 @@
 const express = require("express")
-const jokesRoutes = require('./routes/jokes')
+const {router :jokesRoutes, data} = require('./routes/jokes')
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -13,15 +13,8 @@ app.use((req, res, next) => {
     next()
 })
 
-
-
 app.get('/', (req, res) => {
-    let data = {
-        name: 'jokesss',
-        jokes: []
-    }
-
-    res.render('home', { data: data });
+    res.render('home', { data });
 });
 
 app.use('/api', jokesRoutes)

@@ -16,7 +16,7 @@
     <h1>Jokes</h1>
 <ul>
     <% data.jokes.forEach(joke => { %>
-        <li><%= joke %></li>
+        <li><%= joke.content %></li>
     <% }) %>
 </ul>
         <form action="/api/jokes" method="POST">

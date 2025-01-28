@@ -41,6 +41,7 @@ router.post('/jokes', (req, res) => {
         content: req.body.joke
     }
     data.jokes.push(newJoke);
+    res.redirect('/');
     res.status(201).json(newJoke);
     //res.json({ messg: 'POST a new phrase' })
 })
@@ -53,4 +54,4 @@ router.patch('/jokes/:id', (req, res) => {
     res.json({ messg: 'UPDATE a phrase' })
 })
 
-module.exports = router
+module.exports = {router, data }
