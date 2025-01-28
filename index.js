@@ -6,18 +6,13 @@ app.set('view engine', 'ejs');
 const PORT = 8080;
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 //middleware
 app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
 })
 
-app.use('/api/jokes', (req, res, next) => {
-    if (req.method === 'POST' && !req.body.joke) {
-        return res.status(400).json({ error: 'Joke is required' });
-    }
-    next();
-});
 
 
 app.get('/', (req, res) => {
@@ -30,6 +25,13 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', jokesRoutes)
+
+app.use('/api/jokes', (req, res, next) => {
+    if (req.method === 'POST' && !req.body.joke) {
+        return res.status(400).json({ error: 'Joke is required' });
+    }
+    next();
+});
 
 
 app.use((req, res, next) => {

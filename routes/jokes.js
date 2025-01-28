@@ -14,17 +14,22 @@ const data = {
         email: "example@example.com"
     }],
 }
-
+//grabbing all phrases
 router.get('/', (req, res) => {
-    res.json({ messg: 'GET all phrases' })
+    res.json(data.jokes);
 
 });
 
 
-router.get('/:id', (req, res) => {
+router.get('/jokes/:id', (req, res) => {
+    const joke = data.jokes.find(j => j.id == req.params.id);
+    if (!joke) return res.status(404).json({ error: 'Joke not found' });
+
+    res.json(joke);
     res.json({ messg: 'GET a single phrase' })
 })
 
+//post a new joke
 router.post('/jokes', (req, res) => {
     const newJoke = {
         id: data.jokes.length + 1,
@@ -35,11 +40,11 @@ router.post('/jokes', (req, res) => {
     //res.json({ messg: 'POST a new phrase' })
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/jokes/:id', (req, res) => {
     res.json({ messg: 'DELETE a phrase' })
 })
 
-router.patch('/:id', (req, res) => {
+router.patch('/jokes/:id', (req, res) => {
     res.json({ messg: 'UPDATE a phrase' })
 })
 
